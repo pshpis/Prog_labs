@@ -67,10 +67,10 @@ RM = C:\Users\pshpi\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\203.5981.166
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\study\University\Programming\2 part\lab_1"
+CMAKE_SOURCE_DIR = "C:\study\University\Programming\2 part\Prog_labs\lab_1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\study\University\Programming\2 part\lab_1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\study\University\Programming\2 part\Prog_labs\lab_1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\study\University\Programming\2 part\lab_1\cmake-build-debug\CMakeFiles" "C:\study\University\Programming\2 part\lab_1\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\study\University\Programming\2 part\Prog_labs\lab_1\cmake-build-debug\CMakeFiles" "C:\study\University\Programming\2 part\Prog_labs\lab_1\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\study\University\Programming\2 part\lab_1\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\study\University\Programming\2 part\Prog_labs\lab_1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
