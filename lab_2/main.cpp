@@ -143,7 +143,7 @@ istream& operator >>(istream& s, Polynomial& a){
 int main() {
     Polynomial a;
     cin >> a;
-    a *= 3;
+    a *= 3; `
     a /= 2;
     cout << a;
     cout << a.value(2);

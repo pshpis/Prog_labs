@@ -6,6 +6,7 @@
 #include <iterator>
 
 using namespace std;
+double eps = 1e-8;
 
 double pow2(double x){
     return x * x;
@@ -14,9 +15,8 @@ double pow2(double x){
 template<typename T>
 bool is_unique(T arr){
     auto it = arr.begin();
-    auto it1 = arr.begin();
     for (;it != arr.end(); it ++){
-        it1 = it + 1;
+        auto it1 = it + 1;
         for (;it1 != arr.end(); it1 ++){
             if (*it == *it1) return false;
         }
@@ -24,7 +24,12 @@ bool is_unique(T arr){
     return true;
 }
 
-double eps = 1e-8;
+int sign(double x){
+    if (x < -eps) return -1;
+    if (x > eps) return 1;
+    return 0;
+}
+
 
 class Point {
 private:
@@ -35,12 +40,7 @@ public:
 
     Point(const Point& other) = default;
 
-    Point& operator =(const Point& other){
-        x = other.x;
-        y = other.y;
-
-        return *this;
-    }
+    Point& operator =(const Point& other)= default;
 
     Point(const initializer_list<double>& list){
         if (list.size() == 2){
@@ -64,7 +64,29 @@ public:
 
     friend ostream& operator <<(ostream& s, const Point& a);
     friend istream& operator >>(istream& s, Point& a);
+
+    Point operator -(const Point& other) const{
+        return Point(x - other.x, y - other.y);
+    }
+
+    Point operator -() const{
+        return Point(-x, -y);
+    }
+
+    Point operator +() const{
+        return *this;
+    }
+
+    Point operator +(const Point& other) const{
+        return *this - (-other);
+    }
+
+    friend double product(Point a, Point b);
 };
+
+double product(Point a, Point b){
+    return a.x * b.y - a.y * b.x;
+}
 
 ostream& operator <<(ostream& s, const Point& a){
     s << a.x << " " << a.y;
@@ -93,7 +115,7 @@ public:
 
     Line(double a_, double b_, double c_): a(a_), b(b_), c(c_){}
 
-    int side(const Point& p){
+    [[nodiscard]] int side(const Point& p) const{
         double res = a * p.get_x() + b * p.get_y() + c;
         if (res > eps) return 1;
         if (res < -eps) return -1;
@@ -139,15 +161,15 @@ bool is_parallel(const Line& l1, const Line& l2){
 
 class PolygonalChain{
 protected:
-    deque<Point> points;
 
-    bool is_right_figure(){
+    bool is_right_figure() {
         return true;
     }
 
+    deque<Point> points;
+
 public:
-    explicit PolygonalChain(const deque<Point>& list){
-        points = list;
+    explicit PolygonalChain(const deque<Point>& list):points(list){
         if (!is_right_figure()) points.clear();
     }
 
@@ -176,7 +198,7 @@ public:
         return points;
     }
 
-    size_t size(){
+    [[nodiscard]] size_t size() const{
         return points.size();
     }
 
@@ -208,11 +230,11 @@ public:
         points.pop_front();
     }
 
-    bool empty(){
+    [[nodiscard]] bool empty() const{
         return points.empty();
     }
 
-    virtual double get_perimeter(){
+    [[nodiscard]] virtual double get_perimeter() const{
         if (empty()) return 0;
 
         double res = 0;
@@ -220,6 +242,10 @@ public:
             res += distance(points[i], points[i + 1]);
         }
         return res;
+    }
+
+    void clear(){
+        points.clear();
     }
 
 };
@@ -236,32 +262,66 @@ public:
 
     explicit ClosedPolygonalChain(const deque<Point>& list): PolygonalChain(list){}
 
-    double get_perimeter() override{
+    [[nodiscard]] double get_perimeter() const override{
         if (empty()) return 0;
         return PolygonalChain::get_perimeter() + distance(points.front(), points.back());
     }
+
+    friend class Polygon;
+    friend class RegularPolygon;
+    friend class Triangle;
+    friend class Trapezoid;
 };
 
-class Polygon: public ClosedPolygonalChain{
+class Polygon{
+protected:
+    ClosedPolygonalChain chain;
+
+    int angle_side = -2;
+
+    bool is_right_figure(){
+        for (int i = 0; i < size(); i ++){
+            Point b = chain.points[i], a = chain.points[(i + 1) % size()], c = chain.points[(i + 2) % size()];
+            Point ab = a - b, bc = c - b;
+            int k = sign(product(ab, bc));
+
+            if (i == 0) angle_side = k;
+            else {
+                if (angle_side != k) return false;
+            }
+        }
+        return true;
+    }
 public:
+
     Polygon() = default;
 
     Polygon(const Polygon& other) = default;
 
-    Polygon(const initializer_list<Point>& list):ClosedPolygonalChain(list){}
+    Polygon(const initializer_list<Point>& list):chain(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit Polygon(const Point& point): ClosedPolygonalChain(point) {}
+    explicit Polygon(const Point& point): chain(point) {
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit Polygon(const deque<Point>& list): ClosedPolygonalChain(list){}
+    explicit Polygon(const deque<Point>& list): chain(list){
+        if (!is_right_figure()) chain.clear();
+    }
+
+    int size(){
+        return chain.size();
+    }
 
     double get_square(){
         double res = 0;
         for (int i = 0; i < size(); i ++){
-            res += points[i].get_x() * points[(i + 1) % size()].get_y();
+            res += chain.points[i].get_x() * chain.points[(i + 1) % size()].get_y();
         }
 
         for (int i = 0; i < size(); i ++){
-            res -= points[i].get_y() * points[(i + 1) % size()].get_x();
+            res -= chain.points[i].get_y() * chain.points[(i + 1) % size()].get_x();
         }
 
         res = abs(res) / 2;
@@ -271,8 +331,9 @@ public:
 
     vector<double> get_sides(){
         vector<double> res;
-        for (int i = 0; i < points.size(); i ++){
-            res.push_back(distance(points[i], points[(i + 1) % points.size()]));
+        res.reserve(chain.points.size());
+        for (int i = 0; i < size(); i ++){
+            res.push_back(distance(chain.points[i], chain.points[(i + 1) % chain.points.size()]));
         }
 
         return res;
@@ -280,29 +341,51 @@ public:
 
     vector<Line> get_sides_lines(){
         vector<Line> res;
-        for (int i = 0; i < points.size(); i ++)
-            res.emplace_back(points[i], points[(i + 1) % points.size()]);
+        res.reserve(chain.points.size());
+        for (int i = 0; i < chain.points.size(); i ++)
+            res.emplace_back(chain.points[i], chain.points[(i + 1) % chain.points.size()]);
         return res;
     }
 
+    Point& operator [](int i){
+        return chain.points[i];
+    }
+
+    [[nodiscard]] const deque<Point>& get_points() const{
+        return chain.get_points();
+    }
+
+    [[nodiscard]] double get_perimeter() const{
+        return chain.get_perimeter();
+    }
+
+    void clear(){
+        chain.clear();
+    }
 };
 
 class Triangle: public Polygon{
 protected:
     bool is_right_figure(){
-        return is_unique(points);
+        if (!Polygon::is_right_figure()) return false;
+        if (size() != 3) return false;
+        return true;
     }
+
 public:
     Triangle(){
-        points.clear();
-        for (int i = 0; i < 3; i ++) push_back(Point());
+        for (int i = 0; i < 3; i ++) chain.push_back(Point());
     }
 
     Triangle(const Triangle& other) = default;
 
-    Triangle(const initializer_list<Point>& list):Polygon(list){}
+    Triangle(const initializer_list<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit Triangle(const deque<Point>& list):Polygon(list){}
+    explicit Triangle(const deque<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
     double get_angle(int i){
         vector<double> sides = get_sides();
@@ -330,21 +413,26 @@ public:
 class Trapezoid: public Polygon{
 private:
     bool is_right_figure(){
+        if (!Polygon::is_right_figure()) return false;
         auto sides = get_sides_lines();
         Line l1 = sides[1], l2 = sides[3];
         return is_parallel(l1, l2);
     }
 public:
     Trapezoid(){
-        points.clear();
-        for (int i = 0; i < 4; i ++) push_back(Point());
+        chain.points.clear();
+        for (int i = 0; i < 4; i ++) chain.push_back(Point());
     }
 
     Trapezoid(const Trapezoid& other) = default;
 
-    Trapezoid(const initializer_list<Point>& list):Polygon(list){}
+    Trapezoid(const initializer_list<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit Trapezoid(const deque<Point>& list):Polygon(list){}
+    explicit Trapezoid(const deque<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
 
     double get_height(){
@@ -371,6 +459,7 @@ public:
 class RegularPolygon: public Polygon{
 protected:
     bool is_right_figure(){
+        if (!Polygon::is_right_figure()) return false;
         if (size() <= 2) return true;
         auto sides = get_sides();
         for (int i = 1; i < sides.size(); i ++){
@@ -383,11 +472,17 @@ public:
 
     RegularPolygon(const RegularPolygon& other) = default;
 
-    RegularPolygon(const initializer_list<Point>& list):Polygon(list){}
+    RegularPolygon(const initializer_list<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit RegularPolygon(const Point& point): Polygon(point) {}
+    explicit RegularPolygon(const Point& point): Polygon(point) {
+        if (!is_right_figure()) chain.clear();
+    }
 
-    explicit RegularPolygon(const deque<Point>& list):Polygon(list){}
+    explicit RegularPolygon(const deque<Point>& list):Polygon(list){
+        if (!is_right_figure()) chain.clear();
+    }
 };
 
 class TestingSystem{

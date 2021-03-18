@@ -11,33 +11,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="First lab">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Prog_labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Prog_labs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="Lab2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_1/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_2/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +44,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab_1/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab_1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab_1" TARGET_NAME="lab_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab_1" RUN_TARGET_NAME="lab_1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -87,6 +63,10 @@
       <updated>1614934363055</updated>
       <workItem from="1614934365058" duration="794000" />
       <workItem from="1614936358401" duration="31000" />
+      <workItem from="1614943523743" duration="2558000" />
+      <workItem from="1615026250587" duration="852000" />
+      <workItem from="1615623717887" duration="5076000" />
+      <workItem from="1616094053490" duration="2298000" />
     </task>
     <task id="LOCAL-00001" summary="First lab">
       <created>1614934460455</created>
@@ -95,7 +75,28 @@
       <option name="project" value="LOCAL" />
       <updated>1614934460455</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Lab2">
+      <created>1614943546958</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614943546958</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Lab2">
+      <created>1614943595212</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614943595212</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Lab2">
+      <created>1614943635523</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614943635523</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,9 +112,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First lab" />
-    <option name="LAST_COMMIT_MESSAGE" value="First lab" />
+    <MESSAGE value="Lab2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab2" />
   </component>
 </project>
