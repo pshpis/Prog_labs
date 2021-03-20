@@ -125,6 +125,21 @@ public:
         return Polynomial(nw);
     }
 
+    Polynomial operator* (const Polynomial& other){
+        unordered_map<int, double> nw;
+        for (auto p1: indexes){
+            for (auto p2: other.indexes){
+                nw[p1.first + p2.first] += p1.second * p2.second;
+            }
+        }
+        return Polynomial(nw);
+    }
+
+    Polynomial operator *=(const Polynomial& other){
+        *this = *this * other;
+        return *this;
+    }
+
     Polynomial operator /(double x){
         return *this * (1 / x);
     }
