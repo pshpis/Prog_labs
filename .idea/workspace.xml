@@ -11,14 +11,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="Lab2">
+    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="Lab1 update with friend classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/lab_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_1/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab_2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_2/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab_2" />
   </component>
   <component name="RunManager">
     <configuration name="lab_1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab_1" TARGET_NAME="lab_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab_1" RUN_TARGET_NAME="lab_1">
@@ -66,7 +61,8 @@
       <workItem from="1614943523743" duration="2558000" />
       <workItem from="1615026250587" duration="852000" />
       <workItem from="1615623717887" duration="5076000" />
-      <workItem from="1616094053490" duration="2298000" />
+      <workItem from="1616094053490" duration="2446000" />
+      <workItem from="1616219534000" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="First lab">
       <created>1614934460455</created>
@@ -96,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614943635523</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Lab1 update with friend classes">
+      <created>1616098220172</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616098220172</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First lab" />
     <MESSAGE value="Lab2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab2" />
+    <MESSAGE value="Lab1 update with friend classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab1 update with friend classes" />
   </component>
 </project>

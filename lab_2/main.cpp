@@ -1,52 +1,83 @@
 #include <iostream>
 #include <vector>
 #include <valarray>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
-class Polynomial{
+double eps = 1e-8;
+
+double pow2(double x){
+    return x * x;
+}
+
+double fast_pow(double x, int pow){
+    if (pow == 0) return 1;
+    if (pow == 1) return x;
+    if (pow % 2 == 0) return pow2(fast_pow(x, pow / 2));
+    else return pow2(fast_pow(x, pow / 2)) * x;
+}
+
+class Polynomial {
 private:
-    vector<double> indexes;
+    unordered_map<int, double> indexes;
 public:
-    explicit Polynomial(const vector<double>& inds): indexes(inds){}
+    explicit Polynomial(const vector<int> &inds) {
+        for (int i = 0; i < inds.size(); i++)
+            if (inds[i] != 0) indexes[i] = inds[i];
+    }
 
-    Polynomial(const Polynomial& p) = default;
+    Polynomial(const Polynomial &p) = default;
 
-    Polynomial(const initializer_list<double> list): indexes(list){}
+    explicit Polynomial(const unordered_map<int, double>& inds){
+        indexes = inds;
+    }
 
     Polynomial() = default;
 
-    ~Polynomial(){
-        indexes.clear();
-    }
+    Polynomial &operator=(const Polynomial &p) = default;
 
-    Polynomial& operator =(const Polynomial& other)= default;
-
-    Polynomial& operator =(const vector<double>& ids){
-        indexes = ids;
+    Polynomial &operator=(const vector<double> &inds) {
+        for (int i = 0; i < inds.size(); i++)
+            if (inds[i] != 0) indexes[i] = inds[i];
         return *this;
     }
 
-    [[nodiscard]] int size() const{
+    Polynomial &operator=(double x) {
+        indexes[0] = x;
+        return *this;
+    }
+
+    [[nodiscard]] int size() const {
         return indexes.size();
     }
 
-    double& operator[](int i) const{
-        return (double &)indexes[i];
+    double& operator[](int i){
+        return indexes[i];
     }
 
-    bool operator ==(const Polynomial& other) const{
-        if (size() == other.size()){
-            for (int i = 0; i < size(); i ++){
-                if (indexes[i] != other[i]) return false;
-            }
-            return true;
+    double at(int i) const{
+        return indexes.at(i);
+    }
+
+    void del_zero(){
+        for(auto it = indexes.begin(); it != indexes.end(); ) {
+            if (it->second == 0)
+                it = indexes.erase(it);
+            else
+                ++it;
         }
-        return false;
     }
 
-    bool operator !=(const Polynomial& other) const{
-        return !(other == *this);
+    bool operator ==(Polynomial& other){
+        del_zero();
+        other.del_zero();
+        return indexes == other.indexes;
+    }
+
+    bool operator !=(Polynomial& other){
+        return !(other == *this); // быстро ли работает звездочка?
     }
 
     Polynomial& operator +(){
@@ -55,16 +86,25 @@ public:
 
     Polynomial operator -() const{
         auto nw = indexes;
-        for (auto& i: nw) i = -i;
+        for (auto& p: nw) p.second = -p.second;
         return Polynomial(nw);
     }
 
     Polynomial operator +(const Polynomial& other) const{
-        auto nw = other.size() > size()? other.indexes : indexes;
-        for (int i = 0; i < nw.size(); i ++){
-            nw[i] += other.size() > size()? indexes[i] : other.indexes[i];
+        auto nw = indexes;
+        unordered_set<int> used_indexes;
+        for (auto& p: nw){
+            if (other.indexes.count(p.first) > 0) p.second += other.at(p.first);
+            used_indexes.insert(p.first);
         }
-        return Polynomial(nw);
+
+        for (auto& p: other.indexes){
+            if (used_indexes.count(p.first) == 0) nw[p.first] = p.second;
+        }
+
+        auto res = Polynomial(nw);
+        res.del_zero();
+        return res;
     }
 
     Polynomial operator -(const Polynomial& other) const{
@@ -81,7 +121,7 @@ public:
 
     Polynomial operator *(double x){
         auto nw = indexes;
-        for (auto& i: nw) i *= x;
+        for (auto& i: nw) i.second *= x;
         return Polynomial(nw);
     }
 
@@ -101,24 +141,21 @@ public:
     friend istream& operator >>(istream& s, Polynomial& a);
 
     void operator <<(int k){
-        vector<double> nw(size() + k, 0);
-        for (int i = 0; i < size(); i ++) nw[i + k] = indexes[i];
+        unordered_map<int, double> nw;
+        for (auto p: indexes) nw[p.first + k] = p.second;
         indexes = nw;
     }
 
     void operator >>(int k){
-        vector<double> nw(size() - k, 0);
-        for (int i = k; i < size(); i ++) nw[i - k] = indexes[i];
+        unordered_map<int, double> nw;
+        for (auto p: indexes) nw[p.first - k] = p.second;
         indexes = nw;
     }
 
     [[nodiscard]] double value(double x) const{
-        if (size() == 0) return 0;
-        double x_pow = 1;
         double res = 0;
-        for (int i = 0; i < size(); i ++){
-            res += x_pow * indexes[i];
-            x_pow *= x;
+        for (auto p: indexes){
+            res += fast_pow(x, p.first) * p.second;
         }
         return res;
     }
@@ -126,25 +163,27 @@ public:
 };
 
 ostream& operator <<(ostream& s, const Polynomial& a){
-    for (int i = 0; i < a.size(); i ++) s << a[i] << " ";
-    s << endl;
+    for (auto p: a.indexes) s << p.first << " " << p.second << endl;
     return s;
 }
 
 istream& operator >>(istream& s, Polynomial& a){
     int n;
     s >> n;
-    vector<double> arr(n);
+    unordered_map<int, double> arr;
     for (int i = 0; i < n; i ++) s >> arr[i];
     a = Polynomial(arr);
     return s;
 }
 
+
 int main() {
     Polynomial a;
     cin >> a;
-    a *= 3; `
+    cout << a << "------" << endl;
+    a *= 3;
     a /= 2;
     cout << a;
     cout << a.value(2);
+
 }
