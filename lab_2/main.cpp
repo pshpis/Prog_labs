@@ -21,7 +21,7 @@ double fast_pow(double x, int pow){
 
 class Polynomial {
 private:
-    unordered_map<int, double> indexes;
+    mutable unordered_map<int, double> indexes;
 public:
     explicit Polynomial(const vector<int> &inds) {
         for (int i = 0; i < inds.size(); i++)
@@ -57,6 +57,10 @@ public:
         return indexes[i];
     }
 
+    const double& operator[](int i) const{
+        return indexes[i];
+    }
+
     double at(int i) const{
         return indexes.at(i);
     }
@@ -70,7 +74,7 @@ public:
         }
     }
 
-    bool operator ==(Polynomial& other){
+    bool operator ==(const Polynomial& other) const{
         del_zero();
         other.del_zero();
         return indexes == other.indexes;
@@ -99,7 +103,7 @@ public:
         }
 
         for (auto& p: other.indexes){
-            if (used_indexes.count(p.first) == 0) nw[p.first] = p.second;
+            if (used_indexes.count(p.first) == 0) nw[p.first] += p.second;
         }
 
         auto res = Polynomial(nw);
@@ -111,12 +115,14 @@ public:
         return *this + (-other);
     }
 
-    void operator +=(const Polynomial& other){
+    Polynomial& operator +=(const Polynomial& other){
         *this = *this + other;
+        return *this;
     }
 
-    void operator -=(const Polynomial& other){
+    Polynomial& operator -=(const Polynomial& other){
         *this = *this - other;
+        return *this;
     }
 
     Polynomial operator *(double x){
@@ -135,7 +141,7 @@ public:
         return Polynomial(nw);
     }
 
-    Polynomial operator *=(const Polynomial& other){
+    Polynomial& operator *=(const Polynomial& other){
         *this = *this * other;
         return *this;
     }

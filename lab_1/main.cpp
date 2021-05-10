@@ -314,7 +314,7 @@ public:
         return chain.size();
     }
 
-    double get_square(){
+    virtual double get_square(){
         double res = 0;
         for (int i = 0; i < size(); i ++){
             res += chain.points[i].get_x() * chain.points[(i + 1) % size()].get_y();

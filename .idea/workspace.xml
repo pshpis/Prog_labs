@@ -11,7 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="Unordered_map" />
+    <list default="true" id="d07380e4-ff26-4da4-a52b-d2a2d2cc2ed0" name="Default Changelist" comment="Multiple polynoms">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_1/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_1/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lab_2/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +41,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab_2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="lab_1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab_1" TARGET_NAME="lab_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab_1" RUN_TARGET_NAME="lab_1">
@@ -61,6 +66,9 @@
       <workItem from="1616094053490" duration="2446000" />
       <workItem from="1616219534000" duration="16000" />
       <workItem from="1616225606195" duration="164000" />
+      <workItem from="1616229723979" duration="2459000" />
+      <workItem from="1618172100672" duration="183000" />
+      <workItem from="1620201259569" duration="590000" />
     </task>
     <task id="LOCAL-00001" summary="First lab">
       <created>1614934460455</created>
@@ -104,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616225651575</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Multiple polynoms">
+      <created>1616230025920</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616230025920</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +142,7 @@
     <MESSAGE value="Lab2" />
     <MESSAGE value="Lab1 update with friend classes" />
     <MESSAGE value="Unordered_map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unordered_map" />
+    <MESSAGE value="Multiple polynoms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiple polynoms" />
   </component>
 </project>
