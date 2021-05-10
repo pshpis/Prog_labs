@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/study/University/Programming/2 part/Prog_labs/lab_3/main.cpp
+pugixml-1.11/src/pugixml.hpp
+C:/study/University/Programming/2 part/Prog_labs/lab_3/pugixml-1.11/src/pugixml.hpp
+iostream
+-
+
+C:/study/University/Programming/2 part/Prog_labs/lab_3/pugixml-1.11/src/pugiconfig.hpp
+
+C:/study/University/Programming/2 part/Prog_labs/lab_3/pugixml-1.11/src/pugixml.hpp
+pugiconfig.hpp
+C:/study/University/Programming/2 part/Prog_labs/lab_3/pugixml-1.11/src/pugiconfig.hpp
+stddef.h
+-
+exception
+-
+iterator
+-
+iosfwd
+-
+string
+-
+

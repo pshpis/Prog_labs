@@ -1,0 +1,3 @@
+C:/study/University/Programming/2 part/Prog_labs/lab_5/cmake-build-debug/CMakeFiles/lab_5.dir
+C:/study/University/Programming/2 part/Prog_labs/lab_5/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/study/University/Programming/2 part/Prog_labs/lab_5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
